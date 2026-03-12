@@ -10,7 +10,7 @@ function Content() {
     setCount(count - 1);
   };
   const fetchProducts = async () => {
-    const url = "https://backend-app-lthu.onrender.com/store";
+    const url = import.meta.env.VITE_API_URL || "https://backend-3eoi.onrender.com/store";
     const res = await axios.get(url);
     setProducts(res.data);
   };

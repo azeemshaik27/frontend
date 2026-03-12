@@ -1,16 +1,45 @@
-# React + Vite
+# Frontend App (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Minimal React app with Vite. Fetches products from external API.
 
-Currently, two official plugins are available:
+## Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build for Production
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+Outputs optimized static files to `/dist`. Preview locally:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run preview
+```
+
+## Deployment
+
+### Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. `vercel --prod`
+
+### Netlify
+1. Drag `/dist` to [netlify.com/drop](https://app.netlify.com/drop).
+2. Or CLI: `npm i -g netlify-cli`, `netlify deploy --prod --dir=dist`.
+
+### Github Pages
+1. Install `gh-pages`: `npm i -D gh-pages`
+2. Add to scripts: `"deploy-gh": "gh-pages -d dist"`
+3. `npm run build && npm run deploy-gh`
+
+### Custom base path
+Edit `vite.config.js` `base` (e.g., `/myapp/`). Rebuild.
+
+## API
+Uses `VITE_API_URL` from `.env` (fallback `https://backend-3eoi.onrender.com/store`). Copy `.env.example` to `.env`.
+
+See Vite [deployment docs](https://vite.dev/guide/static-deploy.html).
